@@ -1,0 +1,1433 @@
+[
+  {
+    "_id": "1627b8c0-5466-4393-b015-0bbe579b11f7",
+    "filename": "resume-sample.pdf",
+    "extracted_at": "2026-03-16T14:36:23.426188",
+    "page_count": 13,
+    "char_count": 32663,
+    "data": {
+      "personal_info": {
+        "full_name": "IM A. SAMPLE I",
+        "email": "imasample1@xxx.com",
+        "phone": "+1 402 292-2345",
+        "location": {
+          "city": "Bellevue",
+          "state": "Nebraska",
+          "country": "United States",
+          "full_address": "1234 North 55 Street, Bellevue, Nebraska 68005"
+        },
+        "linkedin_url": null,
+        "github_url": null,
+        "portfolio_url": null,
+        "other_urls": []
+      },
+      "professional_summary": null,
+      "objective": "Internship or Part-time Position in Marketing, Public Relations or related field utilizing strong academic background and excellent communication skills",
+      "work_experience": [
+        {
+          "job_title": "Student Intern, Financial Accounting Development Program",
+          "company_name": "Mutual of Omaha",
+          "location": "Omaha, NE",
+          "employment_type": "Internship",
+          "start_date": "Summer 20xx",
+          "end_date": null,
+          "is_current": false,
+          "duration_months": null,
+          "responsibilities": [
+            "Developed and maintained accounting records for up to fifty bank accounts.",
+            "Formulated monthly and year-end financial statements and generated various payroll records, including federal and state payroll reports, annual tax reports, W-2 and 1099 forms, etc.",
+            "Tested accuracy of account balances and prepared supporting documentation for submission during a comprehensive three-year audit of financial operations.",
+            "Formulated intricate pro-forma budgets.",
+            "Calculated and implemented depreciation/amortization schedules."
+          ],
+          "achievements": [
+            "Converted manual to computerized accounting systems for two organizations.",
+            "Analyzed and successfully reprogrammed software to meet customer requirements.",
+            "Researched and corrected problems to assure effective operation of newly computerized systems."
+          ],
+          "technologies_used": [
+            "MS Office (Word, Excel, PowerPoint, Outlook), QuickBooks"
+          ]
+        },
+        {
+          "job_title": "Accounting Coordinator",
+          "company_name": "Nebraska Special Olympics",
+          "location": "Omaha, NE",
+          "employment_type": "Full-time",
+          "start_date": "20xx-20xx",
+          "end_date": "20xx-20xx",
+          "is_current": false,
+          "duration_months": null,
+          "responsibilities": [
+            "Researched story ideas, wrote articles and participated in the publication of a weekly in-house newsletter.",
+            "Assisted customers and staff members in resolving problems and balancing accounts; trained new staff members.",
+            "Managed and recorded daily accounts receivable deposits of up to $450,000.",
+            "Conducted extensive research to recover lost checks and organized system to stop payment and replace all checks."
+          ],
+          "achievements": [],
+          "technologies_used": [
+            "MS Office (Word, Excel, PowerPoint)"
+          ]
+        },
+        {
+          "job_title": "Bookkeeper",
+          "company_name": "SMC, Inc.",
+          "location": "Omaha, NE",
+          "employment_type": "Full-time",
+          "start_date": "20xx-20xx",
+          "end_date": "20xx-20xx",
+          "is_current": false,
+          "duration_months": null,
+          "responsibilities": [],
+          "achievements": [],
+          "technologies_used": []
+        },
+        {
+          "job_title": "Bookkeeper",
+          "company_name": "First United Methodist Church",
+          "location": "Altus, OK",
+          "employment_type": "Full-time",
+          "start_date": "20xx-20xx",
+          "end_date": "20xx-20xx",
+          "is_current": false,
+          "duration_months": null,
+          "responsibilities": [],
+          "achievements": [],
+          "technologies_used": []
+        }
+      ],
+      "education": [
+        {
+          "degree": "Bachelor of Science",
+          "field_of_study": "Accounting and Financial Management",
+          "institution": "Bellevue University",
+          "location": "Bellevue, NE",
+          "start_date": "In Progress",
+          "end_date": null,
+          "gpa": "3.95/4.00",
+          "grade": null,
+          "honors": null,
+          "relevant_coursework": [
+            "Principles of Marketing",
+            "Business Communication",
+            "Internet Marketing",
+            "Consumer Behavior",
+            "Business Policy & Strategy"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Java",
+          "PERL",
+          "ASP",
+          "PHP Scripting",
+          "Relational Databases",
+          "SQL"
+        ],
+        "soft": [],
+        "tools": [],
+        "frameworks": [],
+        "databases": [],
+        "cloud_platforms": [],
+        "languages_programming": [
+          "English",
+          "Spanish"
+        ],
+        "other": []
+      },
+      "projects": [
+        {
+          "name": null,
+          "description": null,
+          "technologies": [],
+          "url": null,
+          "start_date": null,
+          "end_date": null,
+          "role": null
+        }
+      ],
+      "certifications": [
+        {
+          "name": null,
+          "issuing_organization": null,
+          "issue_date": null,
+          "expiry_date": null,
+          "credential_id": null,
+          "credential_url": null
+        }
+      ],
+      "awards_and_honors": [
+        {
+          "title": null,
+          "issuer": null,
+          "date": null,
+          "description": null
+        }
+      ],
+      "publications": [
+        {
+          "title": null,
+          "publisher": null,
+          "date": null,
+          "url": null,
+          "description": null
+        }
+      ],
+      "volunteer_experience": [
+        {
+          "role": null,
+          "organization": null,
+          "start_date": null,
+          "end_date": null,
+          "description": null
+        }
+      ],
+      "languages_spoken": [
+        {
+          "language": "English",
+          "proficiency": null
+        },
+        {
+          "language": "Spanish",
+          "proficiency": null
+        }
+      ],
+      "interests_hobbies": [],
+      "references": [
+        {
+          "name": null,
+          "title": null,
+          "company": null,
+          "email": null,
+          "phone": null
+        }
+      ],
+      "total_years_experience": null,
+      "highest_education_level": null,
+      "current_job_title": null,
+      "current_company": null,
+      "meta": {
+        "sections_found": [],
+        "sections_missing": [],
+        "extraction_confidence": null,
+        "notes": null
+      }
+    },
+    "raw_text_preview": "=== PAGE 1 ===\nRESUME SAMPLES \nPreparing an effective resume is a difficult and time-consuming task.  This handout \ncontains resume examples that will help you get started.  Different formats and styles \nare used to illustrate the various suggestions and tips contained in the handout, \n\"Preparing Your Resume,\" also available through the Bellevue University Career Services \nCenter. \nemember, these are intended to serve only as examples.  You should modify or change \n  R\nas appropriate to customize your resume according to your skills, experience, education, \nand the job you\u2019re applying.   \nor additional guidance or assistance, contact the Career Services Center at  \n  F\n(402) 557-7423, (800) 756-7920 ext. 7423 or careerservices@bellevue.edu. \nResume Wizards or Templates that are available o"
+  },
+  {
+    "_id": "22fe4deb-8102-4aea-8b7f-6345233d3377",
+    "filename": "Atul_Kushwaha_Resume (1).pdf",
+    "extracted_at": "2026-03-16T10:26:58.035059",
+    "page_count": 1,
+    "char_count": 2559,
+    "data": {
+      "personal_info": {
+        "full_name": "Atul Kushwaha",
+        "email": "atul.kushwaha@email.com",
+        "phone": "+91-9876543210",
+        "location": {
+          "city": null,
+          "state": null,
+          "country": null,
+          "full_address": null
+        },
+        "linkedin_url": "linkedin.com/in/atulkushwaha",
+        "github_url": "github.com/atulkushwaha",
+        "portfolio_url": null,
+        "other_urls": []
+      },
+      "professional_summary": "Results-driven Software Developer with strong expertise in Python, FastAPI, AI integration, and backend architecture.",
+      "objective": null,
+      "work_experience": [
+        {
+          "job_title": "Backend Developer",
+          "company_name": "TechNova Solutions Pvt Ltd",
+          "location": null,
+          "employment_type": null,
+          "start_date": "2023",
+          "end_date": null,
+          "is_current": true,
+          "duration_months": null,
+          "responsibilities": [],
+          "achievements": [
+            "Integrated LLaMA-based resume extraction pipeline and automated job matching system."
+          ],
+          "technologies_used": [
+            "FastAPI",
+            "MongoDB"
+          ]
+        },
+        {
+          "job_title": "Software Engineer Intern",
+          "company_name": "CodeSphere Technologies",
+          "location": null,
+          "employment_type": null,
+          "start_date": "2022",
+          "end_date": null,
+          "is_current": false,
+          "duration_months": null,
+          "responsibilities": [
+            "Built internal dashboard systems using Flask and PostgreSQL",
+            "Optimized database queries reducing response time by 25%"
+          ],
+          "achievements": [],
+          "technologies_used": [
+            "Flask",
+            "PostgreSQL"
+          ]
+        },
+        {
+          "job_title": "AI Research Intern",
+          "company_name": "DataMind Labs",
+          "location": null,
+          "employment_type": null,
+          "start_date": "2021",
+          "end_date": null,
+          "is_current": false,
+          "duration_months": null,
+          "responsibilities": [],
+          "achievements": [
+            "Designed NLP pipelines for resume parsing and skill extraction",
+            "Worked with LLaMA and transformer models to improve structured data extraction accuracy by 20%"
+          ],
+          "technologies_used": [
+            "LLAMA",
+            "Transformer models"
+          ]
+        }
+      ],
+      "education": [
+        {
+          "degree": "Bachelor of Technology in Computer Science",
+          "field_of_study": "Computer Science",
+          "institution": "XYZ Institute of Technology",
+          "location": null,
+          "start_date": "2019",
+          "end_date": "2023",
+          "gpa": "8.7/10",
+          "grade": null,
+          "honors": null,
+          "relevant_coursework": []
+        },
+        {
+          "degree": "Senior Secondary (Class XII)",
+          "field_of_study": null,
+          "institution": "ABC Senior Secondary School",
+          "location": null,
+          "start_date": "2018",
+          "end_date": "2019",
+          "gpa": "92%",
+          "grade": null,
+          "honors": null,
+          "relevant_coursework": []
+        },
+        {
+          "degree": "Secondary (Class X)",
+          "field_of_study": null,
+          "institution": "ABC Senior Secondary School",
+          "location": null,
+          "start_date": "2016",
+          "end_date": "2017",
+          "gpa": "90%",
+          "grade": null,
+          "honors": null,
+          "relevant_coursework": []
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Python",
+          "Java",
+          "C++",
+          "FastAPI",
+          "Flask",
+          "MongoDB",
+          "PostgreSQL",
+          "LLAMA",
+          "Transformer models"
+        ],
+        "soft": [],
+        "tools": [
+          "Git",
+          "Docker",
+          "Linux"
+        ],
+        "frameworks": [
+          "FastAPI",
+          "Flask"
+        ],
+        "databases": [
+          "MongoDB",
+          "PostgreSQL"
+        ],
+        "cloud_platforms": [],
+        "languages_programming": [
+          "Python",
+          "Java",
+          "C++"
+        ],
+        "other": []
+      },
+      "projects": [
+        {
+          "name": "AI Resume Analyzer",
+          "description": "Built multi-engine PDF extractor with LLaMA-based structured JSON output",
+          "technologies": [
+            "LLAMA",
+            "Python"
+          ],
+          "url": null,
+          "start_date": null,
+          "end_date": null,
+          "role": null
+        },
+        {
+          "name": "Automated Placement Engine",
+          "description": "Developed system to analyze resumes and auto-apply to eligible internships based on skill matching",
+          "technologies": [
+            "Python"
+          ],
+          "url": null,
+          "start_date": null,
+          "end_date": null,
+          "role": null
+        },
+        {
+          "name": "Real-Time Chatbot System",
+          "description": "Integrated local LLaMA model for secure, on-device conversational AI",
+          "technologies": [
+            "LLAMA",
+            "Python"
+          ],
+          "url": null,
+          "start_date": null,
+          "end_date": null,
+          "role": null
+        }
+      ],
+      "certifications": [
+        {
+          "name": "Certified Python Developer",
+          "issuing_organization": "Global Tech Certification Board",
+          "issue_date": null,
+          "expiry_date": null,
+          "credential_id": null,
+          "credential_url": null
+        },
+        {
+          "name": "Machine Learning Specialization",
+          "issuing_organization": "Online Professional Program",
+          "issue_date": null,
+          "expiry_date": null,
+          "credential_id": null,
+          "credential_url": null
+        },
+        {
+          "name": "MongoDB Database Administrator Certification",
+          "issuing_organization": "MongoDB",
+          "issue_date": null,
+          "expiry_date": null,
+          "credential_id": null,
+          "credential_url": null
+        }
+      ],
+      "awards_and_honors": [
+        {
+          "title": "Winner \u2013 National Level Hackathon 2023",
+          "issuer": "AI Resume Analyzer Project",
+          "date": "2023",
+          "description": null
+        },
+        {
+          "title": "Best Final Year Project Award",
+          "issuer": "XYZ Institute of Technology",
+          "date": null,
+          "description": null
+        },
+        {
+          "title": "Top 5 Finalist \u2013 Inter-College Coding Championship",
+          "issuer": null,
+          "date": null,
+          "description": null
+        }
+      ],
+      "languages_spoken": [
+        {
+          "language": "English",
+          "proficiency": "Professional"
+        },
+        {
+          "language": "Hindi",
+          "proficiency": "Native"
+        }
+      ],
+      "interests_hobbies": [],
+      "references": [
+        {
+          "name": null,
+          "title": null,
+          "company": null,
+          "email": null,
+          "phone": null
+        }
+      ],
+      "total_years_experience": null,
+      "highest_education_level": null,
+      "current_job_title": "Backend Developer",
+      "current_company": "TechNova Solutions Pvt Ltd",
+      "meta": {
+        "sections_found": [],
+        "sections_missing": [],
+        "extraction_confidence": null,
+        "notes": null
+      }
+    },
+    "raw_text_preview": "=== PAGE 1 ===\nATUL KUSHWAHA\nEmail: atul.kushwaha@email.com | Phone: +91-9876543210 | LinkedIn: linkedin.com/in/atulkushwaha |\nGitHub: github.com/atulkushwaha\nProfessional Summary\nResults-driven Software Developer with strong expertise in Python, FastAPI, AI integration, and backend\narchitecture. Experienced in building scalable web applications, resume analysis systems, and automation\nplatforms. Passionate about solving real-world problems using data-driven and AI-powered solutions.\nWork Experience\n\u007f    Backend Developer | TechNova Solutions Pvt Ltd (2023 \u2013 Present) - Developed scalable REST APIs\n     using FastAPI and MongoDB; improved API performance by 35%. Integrated LLaMA-based resume\n     extraction pipeline and automated job matching system.\n\u007f    Software Engineer Intern | CodeSphe"
+  },
+  {
+    "_id": "7f1ebb7f-b2ab-4f28-aa5e-40a3d218e9c2",
+    "filename": "atul_kushwaha_full_resume.pdf",
+    "extracted_at": "2026-03-08T13:53:47.087533",
+    "page_count": 3,
+    "char_count": 4899,
+    "data": {
+      "personal_info": {
+        "full_name": "ATUL KUSHWAHA",
+        "email": "atul.kushwaha@email.com",
+        "phone": "+91-9876543210",
+        "location": {
+          "city": "Lucknow",
+          "state": "Uttar Pradesh",
+          "country": "India",
+          "full_address": "Lucknow, Uttar Pradesh, India"
+        },
+        "linkedin_url": "linkedin.com/in/atulkushwaha",
+        "github_url": "github.com/atulkushwaha",
+        "portfolio_url": "atulkushwaha.dev",
+        "other_urls": []
+      },
+      "professional_summary": "Results-driven Software Developer with strong expertise in backend systems, artificial intelligence integration, and scalable API design.",
+      "objective": "To leverage my expertise in backend engineering and artificial intelligence to build intelligent software systems that enhance productivity, automate decision-making, and create impactful digital solutions for global organizations.",
+      "work_experience": [
+        {
+          "job_title": "Backend Developer",
+          "company_name": "TechNova Solutions Pvt Ltd",
+          "location": "Lucknow, Uttar Pradesh, India",
+          "employment_type": "Full-time",
+          "start_date": "2023-01-01",
+          "end_date": null,
+          "is_current": true,
+          "duration_months": null,
+          "responsibilities": [],
+          "achievements": [],
+          "technologies_used": [
+            "Python",
+            "FastAPI",
+            "MongoDB",
+            "Docker",
+            "Linux"
+          ]
+        },
+        {
+          "job_title": "Software Engineer Intern",
+          "company_name": "CodeSphere Technologies",
+          "location": "Lucknow, Uttar Pradesh, India",
+          "employment_type": "Intern",
+          "start_date": "2022-01-01",
+          "end_date": "2023-01-01",
+          "is_current": false,
+          "duration_months": null,
+          "responsibilities": [],
+          "achievements": [],
+          "technologies_used": [
+            "Python",
+            "Flask",
+            "PostgreSQL",
+            "Git"
+          ]
+        },
+        {
+          "job_title": "AI Research Intern",
+          "company_name": "DataMind Labs",
+          "location": "Lucknow, Uttar Pradesh, India",
+          "employment_type": "Intern",
+          "start_date": "2021-01-01",
+          "end_date": "2022-01-01",
+          "is_current": false,
+          "duration_months": null,
+          "responsibilities": [],
+          "achievements": [],
+          "technologies_used": [
+            "Python",
+            "NLP",
+            "Transformers",
+            "Machine Learning"
+          ]
+        }
+      ],
+      "education": [
+        {
+          "degree": "Bachelor of Technology (B.Tech) in Computer Science",
+          "field_of_study": "Computer Science",
+          "institution": "XYZ Institute of Technology",
+          "location": "Lucknow, Uttar Pradesh, India",
+          "start_date": "2019-01-01",
+          "end_date": "2023-01-01",
+          "gpa": "8.7/10",
+          "grade": null,
+          "honors": null,
+          "relevant_coursework": []
+        },
+        {
+          "degree": "Senior Secondary Education (Class XII)",
+          "field_of_study": "General",
+          "institution": "ABC Senior Secondary School",
+          "location": "Lucknow, Uttar Pradesh, India",
+          "start_date": "2018-01-01",
+          "end_date": "2019-01-01",
+          "gpa": null,
+          "grade": "92%",
+          "honors": null,
+          "relevant_coursework": []
+        },
+        {
+          "degree": "Secondary Education (Class X)",
+          "field_of_study": "General",
+          "institution": "ABC Senior Secondary School",
+          "location": "Lucknow, Uttar Pradesh, India",
+          "start_date": "2016-01-01",
+          "end_date": "2017-01-01",
+          "gpa": null,
+          "grade": "90%",
+          "honors": null,
+          "relevant_coursework": []
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Python",
+          "FastAPI",
+          "MongoDB",
+          "Docker",
+          "Linux"
+        ],
+        "soft": [
+          "Communication",
+          "Leadership",
+          "Problem Solving",
+          "Analytical Thinking"
+        ],
+        "tools": [
+          "Git",
+          "VS Code"
+        ],
+        "frameworks": [
+          "FastAPI",
+          "Flask",
+          "Django"
+        ],
+        "databases": [
+          "MongoDB",
+          "PostgreSQL",
+          "MySQL"
+        ],
+        "cloud_platforms": [
+          "AWS",
+          "Google Cloud"
+        ],
+        "languages_programming": [
+          "Python",
+          "Java",
+          "C++",
+          "JavaScript"
+        ],
+        "other": []
+      },
+      "projects": [
+        {
+          "name": "AI Resume Analyzer",
+          "description": "Built a multi-engine PDF extraction system combined with transformer-based language models to convert resumes into structured JSON data for automated analysis.",
+          "technologies": [
+            "Python",
+            "FastAPI",
+            "MongoDB",
+            "Docker",
+            "Linux"
+          ],
+          "url": "atulkushwaha.dev",
+          "start_date": "2023-01-01",
+          "end_date": null,
+          "role": null
+        },
+        {
+          "name": "Automated Placement Engine",
+          "description": "Designed a platform that analyzes candidate resumes and automatically matches them with relevant internships and job openings based on skill similarity.",
+          "technologies": [
+            "Python",
+            "FastAPI",
+            "MongoDB",
+            "Docker",
+            "Linux"
+          ],
+          "url": null,
+          "start_date": null,
+          "end_date": null,
+          "role": null
+        },
+        {
+          "name": "Local AI Chatbot System",
+          "description": "Implemented an on-device conversational AI system using locally hosted language models for secure enterprise communication tools.",
+          "technologies": [
+            "Python",
+            "FastAPI",
+            "MongoDB",
+            "Docker",
+            "Linux"
+          ],
+          "url": null,
+          "start_date": null,
+          "end_date": null,
+          "role": null
+        }
+      ],
+      "certifications": [
+        {
+          "name": "Certified Python Developer",
+          "issuing_organization": "Global Tech Certification Board",
+          "issue_date": null,
+          "expiry_date": null,
+          "credential_id": null,
+          "credential_url": null
+        },
+        {
+          "name": "Machine Learning Specialization",
+          "issuing_organization": "Professional Online Program",
+          "issue_date": null,
+          "expiry_date": null,
+          "credential_id": null,
+          "credential_url": null
+        },
+        {
+          "name": "MongoDB Database Administrator Certification",
+          "issuing_organization": "MongoDB",
+          "issue_date": null,
+          "expiry_date": null,
+          "credential_id": null,
+          "credential_url": null
+        }
+      ],
+      "awards_and_honors": [
+        {
+          "title": "Winner \u2013 National Level Hackathon 2023",
+          "issuer": "National Level Hackathon",
+          "date": "2023-01-01",
+          "description": null
+        },
+        {
+          "title": "Best Final Year Project Award",
+          "issuer": "XYZ Institute of Technology",
+          "date": "2023-01-01",
+          "description": null
+        },
+        {
+          "title": "Top 5 Finalist \u2013 Inter-College Coding Championship",
+          "issuer": "Inter-College Coding Championship",
+          "date": "2023-01-01",
+          "description": null
+        }
+      ],
+      "publications": [
+        {
+          "title": null,
+          "publisher": null,
+          "date": null,
+          "url": null,
+          "description": null
+        }
+      ],
+      "volunteer_experience": [
+        {
+          "role": null,
+          "organization": null,
+          "start_date": null,
+          "end_date": null,
+          "description": null
+        }
+      ],
+      "languages_spoken": [
+        {
+          "language": "English",
+          "proficiency": "Professional Proficiency"
+        },
+        {
+          "language": "Hindi",
+          "proficiency": "Native Proficiency"
+        }
+      ],
+      "interests_hobbies": [
+        "Artificial Intelligence Research",
+        "Open Source Development",
+        "Competitive Programming",
+        "Technology Blogging",
+        "Hackathons and Innovation Challenges"
+      ],
+      "references": [
+        {
+          "name": "Rahul Mehta",
+          "title": "Senior Engineering Manager",
+          "company": "TechNova Solutions",
+          "email": "rahul.mehta@technova.com",
+          "phone": "+91-9988776655"
+        },
+        {
+          "name": "Dr. Ananya Sharma",
+          "title": "Professor of Computer Science",
+          "company": "XYZ Institute",
+          "email": "ananya.sharma@xyz.edu",
+          "phone": "+91-9123456780"
+        }
+      ],
+      "total_years_experience": null,
+      "highest_education_level": null,
+      "current_job_title": null,
+      "current_company": null,
+      "meta": {
+        "sections_found": [],
+        "sections_missing": [],
+        "extraction_confidence": null,
+        "notes": null
+      }
+    },
+    "raw_text_preview": "=== PAGE 1 ===\n                                             ATUL KUSHWAHA\nEmail: atul.kushwaha@email.com | Phone: +91-9876543210 | Location: Lucknow, Uttar Pradesh, India | LinkedIn:\nlinkedin.com/in/atulkushwaha | GitHub: github.com/atulkushwaha | Portfolio: atulkushwaha.dev\nProfessional Summary\nResults-driven Software Developer with strong expertise in backend systems, artificial intelligence integration, and\nscalable API design. Experienced in building production-ready web platforms using Python, FastAPI, Flask, and\nmodern database technologies. Skilled in implementing AI-powered systems including resume analyzers,\nautomated job matching engines, and conversational AI platforms using transformer-based models. Passionate\nabout designing reliable, efficient, and secure systems that solve r"
+  },
+  {
+    "_id": "f854650c-81da-47d1-b569-2971662af6e5",
+    "filename": "Atul_Kushwaha_Resume (1).pdf",
+    "extracted_at": "2026-03-08T00:28:36.508945",
+    "page_count": 1,
+    "char_count": 2559,
+    "data": {
+      "personal_info": {
+        "full_name": "Atul Kushwaha",
+        "email": "atul.kushwaha@email.com",
+        "phone": "+91-9876543210",
+        "location": {
+          "city": null,
+          "state": null,
+          "country": null,
+          "full_address": null
+        },
+        "linkedin_url": "linkedin.com/in/atulkushwaha",
+        "github_url": "github.com/atulkushwaha",
+        "portfolio_url": null,
+        "other_urls": []
+      },
+      "professional_summary": "Results-driven Software Developer with strong expertise in Python, FastAPI, AI integration, and backend architecture.",
+      "objective": null,
+      "work_experience": [
+        {
+          "job_title": "Backend Developer",
+          "company_name": "TechNova Solutions Pvt Ltd",
+          "location": null,
+          "employment_type": null,
+          "start_date": "2023",
+          "end_date": null,
+          "is_current": true,
+          "duration_months": null,
+          "responsibilities": [],
+          "achievements": [
+            "Integrated LLaMA-based resume extraction pipeline and automated job matching system."
+          ],
+          "technologies_used": [
+            "FastAPI",
+            "MongoDB"
+          ]
+        },
+        {
+          "job_title": "Software Engineer Intern",
+          "company_name": "CodeSphere Technologies",
+          "location": null,
+          "employment_type": null,
+          "start_date": "2022",
+          "end_date": null,
+          "is_current": false,
+          "duration_months": null,
+          "responsibilities": [
+            "Built internal dashboard systems using Flask and PostgreSQL",
+            "Optimized database queries reducing response time by 25%"
+          ],
+          "achievements": [],
+          "technologies_used": [
+            "Flask",
+            "PostgreSQL"
+          ]
+        },
+        {
+          "job_title": "AI Research Intern",
+          "company_name": "DataMind Labs",
+          "location": null,
+          "employment_type": null,
+          "start_date": "2021",
+          "end_date": null,
+          "is_current": false,
+          "duration_months": null,
+          "responsibilities": [],
+          "achievements": [
+            "Designed NLP pipelines for resume parsing and skill extraction",
+            "Worked with LLaMA and transformer models to improve structured data extraction accuracy by 20%"
+          ],
+          "technologies_used": [
+            "LLAMA",
+            "Transformer models"
+          ]
+        }
+      ],
+      "education": [
+        {
+          "degree": "Bachelor of Technology in Computer Science",
+          "field_of_study": "Computer Science",
+          "institution": "XYZ Institute of Technology",
+          "location": null,
+          "start_date": "2019",
+          "end_date": "2023",
+          "gpa": "8.7/10",
+          "grade": null,
+          "honors": null,
+          "relevant_coursework": []
+        },
+        {
+          "degree": "Senior Secondary (Class XII)",
+          "field_of_study": null,
+          "institution": "ABC Senior Secondary School",
+          "location": null,
+          "start_date": "2018",
+          "end_date": "2019",
+          "gpa": "92%",
+          "grade": null,
+          "honors": null,
+          "relevant_coursework": []
+        },
+        {
+          "degree": "Secondary (Class X)",
+          "field_of_study": null,
+          "institution": "ABC Senior Secondary School",
+          "location": null,
+          "start_date": "2016",
+          "end_date": "2017",
+          "gpa": "90%",
+          "grade": null,
+          "honors": null,
+          "relevant_coursework": []
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Python",
+          "Java",
+          "C++",
+          "FastAPI",
+          "Flask",
+          "MongoDB",
+          "PostgreSQL",
+          "LLAMA",
+          "Transformer models"
+        ],
+        "soft": [],
+        "tools": [
+          "Git",
+          "Docker",
+          "Linux"
+        ],
+        "frameworks": [
+          "FastAPI",
+          "Flask"
+        ],
+        "databases": [
+          "MongoDB",
+          "PostgreSQL"
+        ],
+        "cloud_platforms": [],
+        "languages_programming": [
+          "Python",
+          "Java",
+          "C++"
+        ],
+        "other": []
+      },
+      "projects": [
+        {
+          "name": "AI Resume Analyzer",
+          "description": "Built multi-engine PDF extractor with LLaMA-based structured JSON output",
+          "technologies": [
+            "LLAMA",
+            "Python"
+          ],
+          "url": null,
+          "start_date": null,
+          "end_date": null,
+          "role": null
+        },
+        {
+          "name": "Automated Placement Engine",
+          "description": "Developed system to analyze resumes and auto-apply to eligible internships based on skill matching",
+          "technologies": [
+            "Python"
+          ],
+          "url": null,
+          "start_date": null,
+          "end_date": null,
+          "role": null
+        },
+        {
+          "name": "Real-Time Chatbot System",
+          "description": "Integrated local LLaMA model for secure, on-device conversational AI",
+          "technologies": [
+            "LLAMA",
+            "Python"
+          ],
+          "url": null,
+          "start_date": null,
+          "end_date": null,
+          "role": null
+        }
+      ],
+      "certifications": [
+        {
+          "name": "Certified Python Developer",
+          "issuing_organization": "Global Tech Certification Board",
+          "issue_date": null,
+          "expiry_date": null,
+          "credential_id": null,
+          "credential_url": null
+        },
+        {
+          "name": "Machine Learning Specialization",
+          "issuing_organization": "Online Professional Program",
+          "issue_date": null,
+          "expiry_date": null,
+          "credential_id": null,
+          "credential_url": null
+        },
+        {
+          "name": "MongoDB Database Administrator Certification",
+          "issuing_organization": "MongoDB",
+          "issue_date": null,
+          "expiry_date": null,
+          "credential_id": null,
+          "credential_url": null
+        }
+      ],
+      "awards_and_honors": [
+        {
+          "title": "Winner \u2013 National Level Hackathon 2023",
+          "issuer": "AI Resume Analyzer Project",
+          "date": "2023",
+          "description": null
+        },
+        {
+          "title": "Best Final Year Project Award",
+          "issuer": "XYZ Institute of Technology",
+          "date": null,
+          "description": null
+        },
+        {
+          "title": "Top 5 Finalist \u2013 Inter-College Coding Championship",
+          "issuer": null,
+          "date": null,
+          "description": null
+        }
+      ],
+      "languages_spoken": [
+        {
+          "language": "English",
+          "proficiency": "Professional"
+        },
+        {
+          "language": "Hindi",
+          "proficiency": "Native"
+        }
+      ],
+      "interests_hobbies": [],
+      "references": [
+        {
+          "name": null,
+          "title": null,
+          "company": null,
+          "email": null,
+          "phone": null
+        }
+      ],
+      "total_years_experience": null,
+      "highest_education_level": null,
+      "current_job_title": "Backend Developer",
+      "current_company": "TechNova Solutions Pvt Ltd",
+      "meta": {
+        "sections_found": [],
+        "sections_missing": [],
+        "extraction_confidence": null,
+        "notes": null
+      }
+    },
+    "raw_text_preview": "=== PAGE 1 ===\nATUL KUSHWAHA\nEmail: atul.kushwaha@email.com | Phone: +91-9876543210 | LinkedIn: linkedin.com/in/atulkushwaha |\nGitHub: github.com/atulkushwaha\nProfessional Summary\nResults-driven Software Developer with strong expertise in Python, FastAPI, AI integration, and backend\narchitecture. Experienced in building scalable web applications, resume analysis systems, and automation\nplatforms. Passionate about solving real-world problems using data-driven and AI-powered solutions.\nWork Experience\n\u007f    Backend Developer | TechNova Solutions Pvt Ltd (2023 \u2013 Present) - Developed scalable REST APIs\n     using FastAPI and MongoDB; improved API performance by 35%. Integrated LLaMA-based resume\n     extraction pipeline and automated job matching system.\n\u007f    Software Engineer Intern | CodeSphe"
+  },
+  {
+    "_id": "2a79935a-de6c-4cb8-b2e5-12190d3528fa",
+    "filename": "Atul_Kushwaha_Resume (1).pdf",
+    "extracted_at": "2026-03-08T00:21:24.620807",
+    "page_count": 1,
+    "char_count": 2559,
+    "data": {
+      "personal_info": {
+        "full_name": "ATUL KUSHWAHA",
+        "email": "atul.kushwaha@email.com",
+        "phone": "+91-9876543210",
+        "location": {
+          "city": null,
+          "state": null,
+          "country": null,
+          "full_address": null
+        },
+        "linkedin_url": "linkedin.com/in/atulkushwaha",
+        "github_url": "github.com/atulkushwaha",
+        "portfolio_url": null,
+        "other_urls": []
+      },
+      "professional_summary": null,
+      "objective": null,
+      "work_experience": [
+        {
+          "job_title": "Backend Developer",
+          "company_name": "TechNova Solutions Pvt Ltd",
+          "location": null,
+          "employment_type": "Full-time",
+          "start_date": "2023",
+          "end_date": "Present",
+          "is_current": true,
+          "duration_months": null,
+          "responsibilities": [
+            "Developed scalable REST APIs using FastAPI and MongoDB",
+            "Improved API performance by 35%",
+            "Integrated LLaMA-based resume extraction pipeline",
+            "Automated job matching system"
+          ],
+          "achievements": [
+            "Winner \u2013 National Level Hackathon 2023 (AI Resume Analyzer Project)",
+            "Best Final Year Project Award \u2013 XYZ Institute of Technology",
+            "Top 5 Finalist \u2013 Inter-College Coding Championship"
+          ],
+          "technologies_used": [
+            "Python",
+            "Java",
+            "C++",
+            "FastAPI",
+            "Flask",
+            "MongoDB",
+            "PostgreSQL",
+            "NLP",
+            "LLaMA",
+            "Resume Parsing",
+            "Git",
+            "Docker",
+            "Linux"
+          ]
+        },
+        {
+          "job_title": "Software Engineer Intern",
+          "company_name": "CodeSphere Technologies",
+          "location": null,
+          "employment_type": "Internship",
+          "start_date": "2022",
+          "end_date": "2023",
+          "is_current": false,
+          "duration_months": null,
+          "responsibilities": [
+            "Built internal dashboard systems using Flask and PostgreSQL",
+            "Optimized database queries reducing response time by 25%",
+            "Implemented JWT authentication and role-based access control"
+          ],
+          "achievements": [],
+          "technologies_used": [
+            "Python",
+            "Java",
+            "C++",
+            "Flask",
+            "PostgreSQL",
+            "MongoDB",
+            "Git",
+            "Docker",
+            "Linux"
+          ]
+        },
+        {
+          "job_title": "AI Research Intern",
+          "company_name": "DataMind Labs",
+          "location": null,
+          "employment_type": "Internship",
+          "start_date": "2021",
+          "end_date": "2022",
+          "is_current": false,
+          "duration_months": null,
+          "responsibilities": [
+            "Designed NLP pipelines for resume parsing and skill extraction",
+            "Worked with LLaMA and transformer models to improve structured data extraction accuracy by 20%"
+          ],
+          "achievements": [],
+          "technologies_used": [
+            "Python",
+            "Java",
+            "C++",
+            "FastAPI",
+            "Flask",
+            "MongoDB",
+            "PostgreSQL",
+            "NLP",
+            "LLaMA",
+            "Resume Parsing",
+            "Git",
+            "Docker",
+            "Linux"
+          ]
+        }
+      ],
+      "education": [
+        {
+          "degree": "Bachelor of Technology in Computer Science",
+          "field_of_study": "Computer Science",
+          "institution": "XYZ Institute of Technology",
+          "location": null,
+          "start_date": "2019",
+          "end_date": "2023",
+          "gpa": 8.7,
+          "grade": "CGPA: 8.7/10",
+          "honors": null,
+          "relevant_coursework": []
+        },
+        {
+          "degree": "Senior Secondary (Class XII)",
+          "field_of_study": "None",
+          "institution": "ABC Senior Secondary School",
+          "location": null,
+          "start_date": "2018",
+          "end_date": "2019",
+          "gpa": 92,
+          "grade": "92%",
+          "honors": null,
+          "relevant_coursework": []
+        },
+        {
+          "degree": "Secondary (Class X)",
+          "field_of_study": "None",
+          "institution": "ABC Senior Secondary School",
+          "location": null,
+          "start_date": "2016",
+          "end_date": "2017",
+          "gpa": 90,
+          "grade": "90%",
+          "honors": null,
+          "relevant_coursework": []
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Python",
+          "Java",
+          "C++",
+          "FastAPI",
+          "Flask",
+          "MongoDB",
+          "PostgreSQL",
+          "NLP",
+          "LLaMA",
+          "Resume Parsing",
+          "Git",
+          "Docker",
+          "Linux"
+        ],
+        "soft": [],
+        "tools": [],
+        "frameworks": [],
+        "databases": [],
+        "cloud_platforms": [],
+        "languages_programming": [],
+        "other": []
+      },
+      "projects": [
+        {
+          "name": "AI Resume Analyzer",
+          "description": "Built multi-engine PDF extractor with LLaMA-based structured JSON output; implemented null-safe field extraction.",
+          "technologies": [
+            "Python",
+            "Java",
+            "C++",
+            "FastAPI",
+            "Flask",
+            "MongoDB",
+            "PostgreSQL",
+            "NLP",
+            "LLaMA",
+            "Git",
+            "Docker",
+            "Linux"
+          ],
+          "url": null,
+          "start_date": null,
+          "end_date": null,
+          "role": null
+        },
+        {
+          "name": "Automated Placement Engine",
+          "description": "Developed system to analyze resumes and auto-apply to eligible internships based on skill matching.",
+          "technologies": [
+            "Python",
+            "Java",
+            "C++",
+            "FastAPI",
+            "Flask",
+            "MongoDB",
+            "PostgreSQL",
+            "NLP",
+            "LLaMA",
+            "Git",
+            "Docker",
+            "Linux"
+          ],
+          "url": null,
+          "start_date": null,
+          "end_date": null,
+          "role": null
+        },
+        {
+          "name": "Real-Time Chatbot System",
+          "description": "Integrated local LLaMA model for secure, on-device conversational AI.",
+          "technologies": [
+            "Python",
+            "Java",
+            "C++",
+            "FastAPI",
+            "Flask",
+            "MongoDB",
+            "PostgreSQL",
+            "NLP",
+            "LLaMA",
+            "Git",
+            "Docker",
+            "Linux"
+          ],
+          "url": null,
+          "start_date": null,
+          "end_date": null,
+          "role": null
+        }
+      ],
+      "certifications": [
+        {
+          "name": "Certified Python Developer",
+          "issuing_organization": "Global Tech Certification Board",
+          "issue_date": null,
+          "expiry_date": null,
+          "credential_id": null,
+          "credential_url": null
+        },
+        {
+          "name": "Machine Learning Specialization",
+          "issuing_organization": "Online Professional Program",
+          "issue_date": null,
+          "expiry_date": null,
+          "credential_id": null,
+          "credential_url": null
+        },
+        {
+          "name": "MongoDB Database Administrator Certification",
+          "issuing_organization": null,
+          "issue_date": null,
+          "expiry_date": null,
+          "credential_id": null,
+          "credential_url": null
+        }
+      ],
+      "awards_and_honors": [
+        {
+          "title": "Winner \u2013 National Level Hackathon 2023 (AI Resume Analyzer Project)",
+          "issuer": null,
+          "date": null,
+          "description": null
+        },
+        {
+          "title": "Best Final Year Project Award \u2013 XYZ Institute of Technology",
+          "issuer": null,
+          "date": null,
+          "description": null
+        },
+        {
+          "title": "Top 5 Finalist \u2013 Inter-College Coding Championship",
+          "issuer": null,
+          "date": null,
+          "description": null
+        }
+      ],
+      "publications": [],
+      "volunteer_experience": [],
+      "languages_spoken": [
+        {
+          "language": "English",
+          "proficiency": "Professional"
+        },
+        {
+          "language": "Hindi",
+          "proficiency": "Native"
+        }
+      ],
+      "interests_hobbies": [],
+      "references": [],
+      "total_years_experience": 2,
+      "highest_education_level": "Bachelor of Technology in Computer Science",
+      "current_job_title": null,
+      "current_company": null,
+      "meta": {
+        "sections_found": [
+          "personal_info",
+          "work_experience",
+          "education",
+          "skills",
+          "projects",
+          "certifications",
+          "awards_and_honors",
+          "publications",
+          "volunteer_experience",
+          "languages_spoken",
+          "interests_hobbies",
+          "references"
+        ],
+        "sections_missing": [],
+        "extraction_confidence": 1,
+        "notes": null
+      }
+    },
+    "raw_text_preview": "=== PAGE 1 ===\nATUL KUSHWAHA\nEmail: atul.kushwaha@email.com | Phone: +91-9876543210 | LinkedIn: linkedin.com/in/atulkushwaha |\nGitHub: github.com/atulkushwaha\nProfessional Summary\nResults-driven Software Developer with strong expertise in Python, FastAPI, AI integration, and backend\narchitecture. Experienced in building scalable web applications, resume analysis systems, and automation\nplatforms. Passionate about solving real-world problems using data-driven and AI-powered solutions.\nWork Experience\n\u007f    Backend Developer | TechNova Solutions Pvt Ltd (2023 \u2013 Present) - Developed scalable REST APIs\n     using FastAPI and MongoDB; improved API performance by 35%. Integrated LLaMA-based resume\n     extraction pipeline and automated job matching system.\n\u007f    Software Engineer Intern | CodeSphe"
+  },
+  {
+    "_id": "862c596b-39d8-4665-bdcd-bbd2e12e033c",
+    "filename": "Atul_Kushwaha_Resume (1).pdf",
+    "extracted_at": "2026-03-08T00:16:17.228786",
+    "page_count": 1,
+    "char_count": 2559,
+    "data": {
+      "_error": "Could not parse LLM response as JSON",
+      "_raw_response": "{\n  \"personal_info\": {\n    \"full_name\": \"ATUL KUSHWAHA\",\n    \"email\": \"atul.kushwaha@email.com\",\n    \"phone\": \"+91-9876543210\",\n    \"location\": {\n      \"city\": null,\n      \"state\": null,\n      \"country\": null,\n      \"full_address\": null\n    },\n    \"linkedin_url\": \"linkedin.com/in/atulkushwaha\",\n    \"github_url\": \"github.com/atulkushwaha\",\n    \"portfolio_url\": null,\n    \"other_urls\": []\n  },\n  \"professional_summary\": null,\n  \"objective\": null,\n  \"work_experience\": [\n    {\n      \"job_title\": \"Back"
+    },
+    "raw_text_preview": "=== PAGE 1 ===\nATUL KUSHWAHA\nEmail: atul.kushwaha@email.com | Phone: +91-9876543210 | LinkedIn: linkedin.com/in/atulkushwaha |\nGitHub: github.com/atulkushwaha\nProfessional Summary\nResults-driven Software Developer with strong expertise in Python, FastAPI, AI integration, and backend\narchitecture. Experienced in building scalable web applications, resume analysis systems, and automation\nplatforms. Passionate about solving real-world problems using data-driven and AI-powered solutions.\nWork Experience\n\u007f    Backend Developer | TechNova Solutions Pvt Ltd (2023 \u2013 Present) - Developed scalable REST APIs\n     using FastAPI and MongoDB; improved API performance by 35%. Integrated LLaMA-based resume\n     extraction pipeline and automated job matching system.\n\u007f    Software Engineer Intern | CodeSphe"
+  },
+  {
+    "_id": "6e1cbb20-aac0-47c0-9802-a2b8f6aa6076",
+    "filename": "Atul_Kushwaha_Resume (1).pdf",
+    "extracted_at": "2026-03-08T00:10:43.902726",
+    "page_count": 1,
+    "char_count": 2559,
+    "data": {
+      "_error": "Ollama timed out after 200s. Try a shorter resume."
+    },
+    "raw_text_preview": "=== PAGE 1 ===\nATUL KUSHWAHA\nEmail: atul.kushwaha@email.com | Phone: +91-9876543210 | LinkedIn: linkedin.com/in/atulkushwaha |\nGitHub: github.com/atulkushwaha\nProfessional Summary\nResults-driven Software Developer with strong expertise in Python, FastAPI, AI integration, and backend\narchitecture. Experienced in building scalable web applications, resume analysis systems, and automation\nplatforms. Passionate about solving real-world problems using data-driven and AI-powered solutions.\nWork Experience\n\u007f    Backend Developer | TechNova Solutions Pvt Ltd (2023 \u2013 Present) - Developed scalable REST APIs\n     using FastAPI and MongoDB; improved API performance by 35%. Integrated LLaMA-based resume\n     extraction pipeline and automated job matching system.\n\u007f    Software Engineer Intern | CodeSphe"
+  }
+]
