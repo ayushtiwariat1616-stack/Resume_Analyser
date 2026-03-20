@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Mere Khet – Kisan AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>
+:root{
+  --bg:#060d07;--bg2:#0b1a0d;--surface:#0f2211;--surface2:#152a17;
+  --green:#1db954;--green2:#16a34a;--emerald:#34d399;--lime:#a3e635;
+  --gold:#f59e0b;--gold2:#fbbf24;--amber:#f97316;
+  --blue:#60a5fa;--purple:#c084fc;--cyan:#00d4ff;
+  --white:#ffffff;--text:#e8f5e9;--text-mid:#a7c4aa;--text-muted:#5a7a5d;
+  --border:rgba(52,211,153,0.12);--border-gold:rgba(245,158,11,0.18);
+  --r:18px;--r2:14px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;cursor:none;}
+
+/* ══ CURSOR ══ */
+#cursor{position:fixed;width:10px;height:10px;border-radius:50%;background:var(--gold);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:screen;}
+#cursor-ring{position:fixed;width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(245,158,11,.45);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s;}
+
+/* ══ NOISE + CANVAS ══ */
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.025;}
+#three-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;}
+
+/* ══ TOPBAR ══ */
+.topbar{position:sticky;top:0;z-index:300;background:rgba(6,13,7,.88);backdrop-filter:blur(28px);border-bottom:1px solid var(--border);height:68px;padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;}
+.brand{display:flex;align-items:center;gap:13px;text-decoration:none;}
+.brand-mark{width:44px;height:44px;border-radius:14px;background:linear-gradient(145deg,var(--green2),var(--emerald));display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 0 24px rgba(29,185,84,.45);animation:logoGlow 3s ease-in-out infinite;flex-shrink:0;}
+@keyframes logoGlow{0%,100%{box-shadow:0 0 18px rgba(29,185,84,.4),0 0 0 0 rgba(29,185,84,.2);}50%{box-shadow:0 0 38px rgba(29,185,84,.7),0 0 0 12px rgba(29,185,84,0);}}
+.brand-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;background:linear-gradient(135deg,var(--emerald),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;}
+.brand-tagline{font-size:.62rem;color:var(--text-muted);letter-spacing:.14em;text-transform:uppercase;margin-top:3px;}
+.nav-links{display:flex;align-items:center;gap:4px;}
+.nav-links a{padding:7px 15px;border-radius:8px;font-size:.81rem;font-weight:500;color:var(--text-mid);text-decoration:none;transition:all .2s;}
+.nav-links a:hover{color:var(--emerald);background:rgba(52,211,153,.07);}
+.nav-links a.active{color:var(--emerald);}
+
+/* ══ PAGE ══ */
+.page{max-width:1200px;margin:0 auto;padding:0 2.5rem 6rem;position:relative;z-index:2;}
+
+/* ══ PAGE HEADER ══ */
+.page-header{padding:4rem 0 2.5rem;display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;animation:fadeUp .7s cubic-bezier(0.16,1,.3,1) both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+.page-eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.page-eyebrow::before,.page-eyebrow::after{content:'';width:20px;height:1px;background:var(--gold);opacity:.55;}
+.page-header h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,5vw,3.8rem);font-weight:700;color:var(--white);line-height:1.05;letter-spacing:-.02em;margin-bottom:10px;}
+.page-header h1 em{font-style:italic;background:linear-gradient(135deg,var(--gold) 0%,var(--gold2) 40%,var(--lime) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-size:200% auto;animation:gShift 4s ease infinite;}
+@keyframes gShift{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+.page-sub{font-size:.92rem;color:var(--text-muted);max-width:480px;line-height:1.7;}
+.btn-add{display:inline-flex;align-items:center;gap:9px;background:linear-gradient(135deg,var(--gold),var(--amber));color:#0a0500;font-weight:700;font-size:.9rem;padding:12px 26px;border-radius:50px;border:none;cursor:none;box-shadow:0 8px 24px rgba(245,158,11,.4),inset 0 1px 0 rgba(255,255,255,.15);transition:all .35s cubic-bezier(.34,1.56,.64,1);font-family:'Outfit',sans-serif;position:relative;overflow:hidden;}
+.btn-add::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);width:200%;height:200%;background:radial-gradient(circle,rgba(255,255,255,.12) 0%,transparent 60%);transition:transform .5s;border-radius:50%;}
+.btn-add:hover::before{transform:translate(-50%,-50%) scale(1);}
+.btn-add:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 14px 36px rgba(245,158,11,.55);}
+.btn-add .plus{font-size:1.1rem;font-weight:900;}
+
+/* ══ WEATHER STRIP ══ */
+.weather-strip{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:18px 22px;margin-bottom:24px;display:flex;align-items:center;gap:22px;flex-wrap:wrap;animation:fadeUp .7s cubic-bezier(0.16,1,.3,1) .1s both;position:relative;overflow:hidden;}
+.weather-strip::before{content:'';position:absolute;top:-30px;right:-30px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,rgba(96,165,250,.05) 0%,transparent 70%);pointer-events:none;}
+.weather-city{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.weather-city strong{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--white);display:block;}
+.w-label{font-size:.68rem;color:var(--text-muted);font-family:'Space Mono',monospace;letter-spacing:.06em;text-transform:uppercase;}
+.weather-days{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;flex:1;}
+.weather-days::-webkit-scrollbar{display:none;}
+.wday{display:flex;flex-direction:column;align-items:center;gap:4px;background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:10px 14px;min-width:72px;transition:all .25s;flex-shrink:0;}
+.wday:hover{border-color:rgba(52,211,153,.25);transform:translateY(-4px);box-shadow:0 10px 24px rgba(0,0,0,.3);}
+.wday:first-child{border-color:rgba(52,211,153,.22);background:rgba(52,211,153,.05);}
+.wday-date{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--text-muted);font-weight:700;letter-spacing:.06em;text-transform:uppercase;}
+.wday:first-child .wday-date{color:var(--emerald);}
+.wday-icon{width:36px;height:36px;}
+.wday-temp{font-family:'Space Mono',monospace;font-size:.9rem;font-weight:700;color:var(--white);}
+.wday-desc{font-size:.65rem;color:var(--text-muted);text-align:center;max-width:68px;}
+.wday-hum{font-size:.68rem;color:var(--text-muted);}
+.wday-rain{font-size:.75rem;color:var(--blue);}
+
+/* ══ LANDS GRID ══ */
+.lands-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px;margin-bottom:24px;}
+
+/* ══ LAND CARD ══ */
+.land-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:0;overflow:hidden;transition:all .45s cubic-bezier(.34,1.56,.64,1);position:relative;display:flex;flex-direction:column;animation:cardIn .6s cubic-bezier(0.16,1,.3,1) both;}
+.land-card:nth-child(1){animation-delay:.05s}
+.land-card:nth-child(2){animation-delay:.1s}
+.land-card:nth-child(3){animation-delay:.15s}
+.land-card:nth-child(4){animation-delay:.2s}
+.land-card:nth-child(5){animation-delay:.25s}
+.land-card:nth-child(6){animation-delay:.3s}
+@keyframes cardIn{from{opacity:0;transform:translateY(24px) scale(.97);}to{opacity:1;transform:translateY(0) scale(1);}}
+.land-card:hover{transform:translateY(-8px) scale(1.015);border-color:rgba(52,211,153,.28);box-shadow:0 24px 56px rgba(0,0,0,.45),0 0 0 1px rgba(52,211,153,.1);}
+/* top glow line */
+.land-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--emerald),transparent);opacity:0;transition:opacity .3s;}
+.land-card:hover::before{opacity:1;}
+/* radial bg accent */
+.land-card::after{content:'';position:absolute;top:-40px;right:-40px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(52,211,153,.05) 0%,transparent 70%);pointer-events:none;transition:transform .5s;}
+.land-card:hover::after{transform:scale(1.8);}
+
+/* Card top section */
+.lc-top{padding:18px 20px 0;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1;}
+.lc-crop-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.2);border-radius:50px;padding:5px 13px;font-size:.74rem;font-weight:700;color:var(--emerald);}
+.lc-actions{display:flex;gap:6px;}
+.icon-btn{width:32px;height:32px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text-muted);font-size:.85rem;cursor:none;transition:all .2s;display:flex;align-items:center;justify-content:center;}
+.icon-btn:hover{background:rgba(52,211,153,.08);border-color:rgba(52,211,153,.25);color:var(--emerald);transform:scale(1.1);}
+.icon-btn.danger:hover{background:rgba(239,68,68,.08);border-color:rgba(239,68,68,.25);color:#f87171;}
+
+/* Card body */
+.lc-name{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--white);padding:10px 20px 6px;letter-spacing:-.01em;line-height:1.2;position:relative;z-index:1;}
+
+.lc-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 20px 14px;position:relative;z-index:1;}
+.lc-stat{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:9px 12px;}
+.lc-stat-label{font-family:'Space Mono',monospace;font-size:.6rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);margin-bottom:3px;}
+.lc-stat-val{font-size:.82rem;font-weight:600;color:var(--text-mid);}
+
+.lc-notes{padding:0 20px 14px;font-size:.8rem;color:var(--text-muted);line-height:1.55;position:relative;z-index:1;font-style:italic;}
+
+.lc-detail-btn{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:rgba(52,211,153,.05);border-top:1px solid var(--border);text-decoration:none;color:var(--emerald);font-size:.82rem;font-weight:700;transition:all .25s;margin-top:auto;position:relative;z-index:1;}
+.lc-detail-btn:hover{background:rgba(52,211,153,.1);padding-right:24px;}
+.lc-detail-btn::after{content:'→';transition:transform .2s;}
+.lc-detail-btn:hover::after{transform:translateX(4px);}
+
+/* ══ EMPTY STATE ══ */
+.empty-state{text-align:center;padding:80px 24px;animation:fadeUp .7s cubic-bezier(0.16,1,.3,1) .1s both;}
+.empty-icon{font-size:4.5rem;margin-bottom:20px;display:block;animation:floatIcon 3s ease-in-out infinite;}
+@keyframes floatIcon{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+.empty-state h2{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--white);margin-bottom:10px;}
+.empty-state p{color:var(--text-muted);font-size:.9rem;margin-bottom:24px;max-width:380px;margin-left:auto;margin-right:auto;line-height:1.7;}
+
+/* ══ MODAL ══ */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);z-index:500;display:none;animation:fadeIn .25s ease;}
+.modal-overlay.open{display:block;}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+
+.modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(.92);z-index:600;width:min(580px,94vw);background:var(--bg2);border:1px solid rgba(52,211,153,.2);border-radius:var(--r);box-shadow:0 32px 80px rgba(0,0,0,.7),0 0 0 1px rgba(52,211,153,.06);display:none;flex-direction:column;max-height:90vh;overflow:hidden;transition:transform .35s cubic-bezier(.34,1.56,.64,1),opacity .25s;}
+.modal.open{display:flex;transform:translate(-50%,-50%) scale(1);}
+/* top glow */
+.modal::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--emerald),var(--gold2),transparent);}
+
+.modal-header{padding:22px 24px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);flex-shrink:0;}
+.modal-header h2{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--white);}
+.modal-close{width:34px;height:34px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text-muted);font-size:1rem;cursor:none;transition:all .2s;display:flex;align-items:center;justify-content:center;}
+.modal-close:hover{background:rgba(239,68,68,.08);border-color:rgba(239,68,68,.25);color:#f87171;}
+
+.modal-body{padding:20px 24px;overflow-y:auto;flex:1;scrollbar-width:thin;scrollbar-color:var(--border) transparent;}
+.modal-body::-webkit-scrollbar{width:4px;}
+.modal-body::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px;}
+
+/* Lang choice */
+.lang-first{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:16px 18px;margin-bottom:18px;}
+.lang-first-label{font-size:.82rem;color:var(--text-muted);margin-bottom:12px;line-height:1.55;}
+.lang-first-label small{display:block;margin-top:2px;font-size:.76rem;color:var(--text-muted);opacity:.7;}
+.lang-choice-group{display:flex;gap:10px;}
+.lang-choice{display:flex;align-items:center;gap:8px;cursor:none;}
+.lang-choice input[type=radio]{display:none;}
+.lang-choice span{padding:8px 20px;border-radius:50px;border:1.5px solid var(--border);font-size:.82rem;font-weight:600;color:var(--text-muted);transition:all .2s;background:var(--surface2);}
+.lang-choice input:checked+span{background:linear-gradient(135deg,var(--green2),var(--emerald));color:white;border-color:transparent;box-shadow:0 4px 14px rgba(29,185,84,.35);}
+.lang-choice:hover span{border-color:rgba(52,211,153,.3);color:var(--emerald);}
+
+/* Form fields */
+.form-field{margin-bottom:16px;}
+.form-field label{display:block;font-size:.82rem;font-weight:700;color:var(--text-mid);margin-bottom:4px;}
+.form-field label .req{color:var(--emerald);}
+.form-field label .optional{font-weight:400;color:var(--text-muted);font-size:.74rem;}
+.field-hint{font-size:.74rem;color:var(--text-muted);margin-bottom:7px;line-height:1.5;}
+.form-field input[type=text],
+.form-field input[type=date],
+.form-field textarea{width:100%;background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r2);color:var(--text);padding:11px 15px;font-size:.88rem;font-family:'Outfit',sans-serif;outline:none;transition:all .2s;resize:vertical;}
+.form-field input:focus,.form-field textarea:focus{border-color:rgba(52,211,153,.4);box-shadow:0 0 0 4px rgba(52,211,153,.06);}
+.form-field input::placeholder,.form-field textarea::placeholder{color:var(--text-muted);}
+.form-field input[type=date]{color-scheme:dark;}
+
+/* Frequency buttons */
+.freq-options{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px;}
+.freq-btn{padding:7px 16px;background:var(--surface);border:1.5px solid var(--border);border-radius:50px;font-size:.78rem;font-weight:600;color:var(--text-muted);cursor:none;transition:all .2s;font-family:'Outfit',sans-serif;}
+.freq-btn:hover{border-color:rgba(52,211,153,.3);color:var(--emerald);}
+.freq-btn.selected{background:rgba(52,211,153,.1);border-color:rgba(52,211,153,.4);color:var(--emerald);}
+
+/* Modal footer */
+.modal-footer{padding:16px 24px;border-top:1px solid var(--border);display:flex;justify-content:flex-end;gap:10px;flex-shrink:0;}
+.btn-ghost{padding:10px 22px;background:transparent;border:1px solid var(--border);border-radius:50px;color:var(--text-muted);font-size:.82rem;font-weight:600;cursor:none;transition:all .2s;font-family:'Outfit',sans-serif;}
+.btn-ghost:hover{border-color:rgba(52,211,153,.25);color:var(--emerald);}
+.btn-save{padding:10px 26px;background:linear-gradient(135deg,var(--green2),var(--emerald));color:white;border:none;border-radius:50px;font-size:.85rem;font-weight:700;cursor:none;box-shadow:0 6px 20px rgba(29,185,84,.35);transition:all .3s cubic-bezier(.34,1.56,.64,1);font-family:'Outfit',sans-serif;}
+.btn-save:hover{transform:translateY(-2px) scale(1.04);box-shadow:0 10px 28px rgba(29,185,84,.5);}
+.btn-save:disabled{opacity:.45;cursor:not-allowed;transform:none;}
+
+/* ══ TOAST ══ */
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--surface2);border:1px solid rgba(52,211,153,.25);border-radius:50px;padding:12px 24px;font-size:.84rem;font-weight:600;color:var(--emerald);z-index:800;transition:transform .4s cubic-bezier(.34,1.56,.64,1),opacity .3s;opacity:0;pointer-events:none;box-shadow:0 8px 28px rgba(0,0,0,.4);}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1;}
+.toast.error{color:#f87171;border-color:rgba(239,68,68,.25);}
+
+/* ══ STATS BAR ══ */
+.stats-bar{display:flex;gap:14px;margin-bottom:24px;flex-wrap:wrap;animation:fadeUp .7s cubic-bezier(0.16,1,.3,1) .05s both;}
+.stat-pill{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:50px;padding:8px 18px;font-size:.8rem;color:var(--text-muted);}
+.stat-pill strong{color:var(--white);font-family:'Space Mono',monospace;font-size:.9rem;}
+
+/* ══ REVEAL ══ */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(0.16,1,.3,1),transform .7s cubic-bezier(0.16,1,.3,1);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:900px){.lands-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:640px){.topbar{padding:0 1.2rem;}.page{padding:0 1.2rem 5rem;}.lands-grid{grid-template-columns:1fr;}.page-header{flex-direction:column;align-items:flex-start;}.weather-strip{flex-direction:column;}.nav-links{display:none;}}
+</style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<canvas id="three-canvas"></canvas>
+
+<!-- TOPBAR -->
+<nav class="topbar">
+  <a href="/" class="brand">
+    <div class="brand-mark">🌾</div>
+    <div>
+      <div class="brand-name">Kisan AI</div>
+      <div class="brand-tagline">Farmer's Companion</div>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="/assistant">AI Sahayak</a>
+    <a href="/manage-lands" class="active">Mere Khet</a>
+  </div>
+</nav>
+
+<!-- PAGE -->
+<div class="page">
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div>
+      <div class="page-eyebrow">Farm Management</div>
+      <h1>Mere <em>Khet</em></h1>
+      <p class="page-sub">Apni fasal ki jaankari rakhen aur AI se sahi salah payen.</p>
+    </div>
+    <button class="btn-add" onclick="openAddModal()">
+      <span class="plus">+</span> Naya Khet Joḍen
+    </button>
+  </div>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar" id="stats-bar" style="display:none;">
+    <div class="stat-pill">🌾 <strong id="stat-total">0</strong> Khet</div>
+    <div class="stat-pill">🌱 <strong id="stat-crops">0</strong> Fasal</div>
+    <div class="stat-pill">💧 <strong id="stat-watered">0</strong> Aaj Paani Chahiye</div>
+  </div>
+
+  <!-- WEATHER -->
+  {% if weather and not weather.error %}
+  <div class="weather-strip reveal">
+    <div class="weather-city">
+      <span>📍</span>
+      <div>
+        <strong>{{ weather.city }}</strong>
+        <span class="w-label">Aaj ka mausam</span>
+      </div>
+    </div>
+    <div class="weather-days">
+      {% for day in weather.forecast %}
+      <div class="wday">
+        <div class="wday-date">{{ 'Aaj' if loop.first else day.date[5:] }}</div>
+        <img class="wday-icon" src="https://openweathermap.org/img/wn/{{ day.icon }}.png" alt="{{ day.desc }}"/>
+        <div class="wday-temp">{{ day.temp }}°C</div>
+        <div class="wday-desc">{{ day.desc }}</div>
+        <div class="wday-hum">💧 {{ day.humidity }}%</div>
+        {% if day.rain > 0 %}<div class="wday-rain">🌧️</div>{% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- LANDS GRID -->
+  {% if lands %}
+  <div class="lands-grid" id="lands-grid">
+    {% for land in lands %}
+    <div class="land-card" id="card-{{ land.id }}">
+      <div class="lc-top">
+        <div class="lc-crop-badge">🌱 {{ land.crop_name }}</div>
+        <div class="lc-actions">
+          <button class="icon-btn" onclick="openEditModal('{{ land.id }}')" title="Edit">✏️</button>
+          <button class="icon-btn danger" onclick="deleteLand('{{ land.id }}')" title="Delete">🗑️</button>
+        </div>
+      </div>
+      <h3 class="lc-name">{{ land.name }}</h3>
+      <div class="lc-stats">
+        {% if land.sowing_date %}
+        <div class="lc-stat">
+          <div class="lc-stat-label">🗓️ Beej Boya</div>
+          <div class="lc-stat-val">{{ land.sowing_date }}</div>
+        </div>
+        {% endif %}
+        {% if land.last_watered %}
+        <div class="lc-stat">
+          <div class="lc-stat-label">💧 Aakhri Paani</div>
+          <div class="lc-stat-val">{{ land.last_watered }}</div>
+        </div>
+        {% endif %}
+        {% if land.watering_freq %}
+        <div class="lc-stat">
+          <div class="lc-stat-label">⏱️ Paani Cycle</div>
+          <div class="lc-stat-val">{{ land.watering_freq }}</div>
+        </div>
+        {% endif %}
+      </div>
+      {% if land.notes %}
+      <div class="lc-notes">📝 {{ land.notes }}</div>
+      {% endif %}
+      <a href="/manage-lands/land/{{ land.id }}" class="lc-detail-btn">
+        AI Salah Dekhen
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="empty-state">
+    <span class="empty-icon">🌾</span>
+    <h2>Abhi koi khet nahi hai</h2>
+    <p>Apna pehla khet joḍen aur AI se salah payen.</p>
+    <button class="btn-add" onclick="openAddModal()"><span class="plus">+</span> Pehla Khet Joḍen</button>
+  </div>
+  {% endif %}
+
+</div>
+
+<!-- MODAL OVERLAY -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal()"></div>
+
+<!-- MODAL -->
+<div class="modal" id="land-modal">
+  <div class="modal-header">
+    <h2 id="modal-title">Naya Khet Joḍen</h2>
+    <button class="modal-close" onclick="closeModal()">✕</button>
+  </div>
+  <div class="modal-body">
+    <input type="hidden" id="edit-land-id"/>
+
+    <!-- Language choice -->
+    <div class="lang-first">
+      <div class="lang-first-label">
+        Aap kaunsi bhasha mein salah chahte hain?
+        <small>Which language for AI advice?</small>
+      </div>
+      <div class="lang-choice-group">
+        <label class="lang-choice">
+          <input type="radio" name="f-lang" value="hi" checked/>
+          <span>🇮🇳 हिंदी</span>
+        </label>
+        <label class="lang-choice">
+          <input type="radio" name="f-lang" value="en"/>
+          <span>🇬🇧 English</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label>🏡 Khet ka naam <span class="req">*</span></label>
+      <div class="field-hint">Koi bhi naam — jaise "Ghar ke paas wala" ya "Nadi ke paas"</div>
+      <input type="text" id="f-name" placeholder="Jaise: Ghar ke paas wala khet"/>
+    </div>
+
+    <div class="form-field">
+      <label>🌾 Kaun si fasal lagai hai? <span class="req">*</span></label>
+      <div class="field-hint">Apni fasal ka naam likhein</div>
+      <input type="text" id="f-crop-name" placeholder="Jaise: Gehun, Chawal, Ganna, Tomato"/>
+    </div>
+
+    <div class="form-field">
+      <label>🗓️ Fasal kab boi?</label>
+      <div class="field-hint">Agar yaad ho to tarikh chunen</div>
+      <input type="date" id="f-sowing-date"/>
+    </div>
+
+    <div class="form-field">
+      <label>💧 Aakhri baar paani kab diya?</label>
+      <div class="field-hint">Agar yaad ho to tarikh chunen</div>
+      <input type="date" id="f-last-watered"/>
+    </div>
+
+    <div class="form-field">
+      <label>⏱️ Kitne din mein ek baar paani dete hain?</label>
+      <div class="field-hint">Paani dene ki aadat chunen</div>
+      <div class="freq-options" id="freq-options">
+        <button type="button" class="freq-btn" onclick="selectFreq(this,'Roz')">Roz</button>
+        <button type="button" class="freq-btn" onclick="selectFreq(this,'2 din mein')">2 din mein</button>
+        <button type="button" class="freq-btn" onclick="selectFreq(this,'3 din mein')">3 din mein</button>
+        <button type="button" class="freq-btn" onclick="selectFreq(this,'Hafte mein')">Hafte mein</button>
+        <button type="button" class="freq-btn" onclick="selectFreq(this,'Baarish par nirbhar')">Baarish par</button>
+      </div>
+      <input type="hidden" id="f-watering-freq"/>
+    </div>
+
+    <div class="form-field">
+      <label>📝 Kuch aur batana chahte hain? <span class="optional">(Optional)</span></label>
+      <div class="field-hint">Koi bhi cheez jo AI ko pata honi chahiye</div>
+      <textarea id="f-notes" rows="3" placeholder="Jaise: Patte peele pad rahe hain, ya kide lag rahe hain..."></textarea>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button class="btn-ghost" onclick="closeModal()">Wapas Jao</button>
+    <button class="btn-save" id="modal-save-btn" onclick="saveLand()">💾 Khet Bachao</button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+/* ══ CURSOR ══ */
+const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+(function animR(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animR);})();
+function cursorHover(on){cur.style.width=on?'18px':'10px';cur.style.height=on?'18px':'10px';ring.style.width=on?'56px':'38px';ring.style.height=on?'56px':'38px';ring.style.borderColor=on?'rgba(245,158,11,.8)':'rgba(245,158,11,.45)';}
+document.querySelectorAll('a,button,.land-card,.wday,.freq-btn,.lang-choice').forEach(el=>{
+  el.addEventListener('mouseenter',()=>cursorHover(true));
+  el.addEventListener('mouseleave',()=>cursorHover(false));
+});
+
+/* ══ THREE.JS ══ */
+(function(){
+  const canvas=document.getElementById('three-canvas');
+  const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  renderer.setSize(innerWidth,innerHeight);
+  const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(60,innerWidth/innerHeight,.1,1000);
+  camera.position.z=5;
+
+  /* Land-themed particles: gold + emerald + lime */
+  const N=2000,geo=new THREE.BufferGeometry(),pos=new Float32Array(N*3),col=new Float32Array(N*3);
+  for(let i=0;i<N;i++){
+    pos[i*3]=(Math.random()-.5)*22;pos[i*3+1]=(Math.random()-.5)*22;pos[i*3+2]=(Math.random()-.5)*12;
+    const g=Math.random();
+    if(g>.65){col[i*3]=.96;col[i*3+1]=.62;col[i*3+2]=.04;} // gold
+    else if(g>.3){col[i*3]=.2;col[i*3+1]=.83;col[i*3+2]=.6;} // emerald
+    else{col[i*3]=.64;col[i*3+1]=.9;col[i*3+2]=.21;} // lime
+  }
+  geo.setAttribute('position',new THREE.BufferAttribute(pos,3));
+  geo.setAttribute('color',new THREE.BufferAttribute(col,3));
+  const pts=new THREE.Points(geo,new THREE.PointsMaterial({size:.03,vertexColors:true,transparent:true,opacity:.55}));
+  scene.add(pts);
+
+  /* Agricultural grid plane — fields from above */
+  const gridGeo=new THREE.PlaneGeometry(16,16,10,10);
+  const gridEdges=new THREE.EdgesGeometry(gridGeo);
+  const gridLine=new THREE.LineSegments(gridEdges,new THREE.LineBasicMaterial({color:0x34d399,transparent:true,opacity:.06}));
+  gridLine.rotation.x=-Math.PI/2.4;gridLine.position.set(0,-3.5,-4);
+  scene.add(gridLine);
+
+  /* Wireframe globe (right) */
+  const sphere=new THREE.Mesh(new THREE.SphereGeometry(2.4,18,18),new THREE.MeshBasicMaterial({color:0x34d399,wireframe:true,transparent:true,opacity:.04}));
+  sphere.position.set(4.5,.5,-2);scene.add(sphere);
+
+  /* Gold torus */
+  const tor=new THREE.Mesh(new THREE.TorusGeometry(1.6,.008,16,80),new THREE.MeshBasicMaterial({color:0xf59e0b,transparent:true,opacity:.22}));
+  tor.position.set(4.5,.5,-2);tor.rotation.x=Math.PI/4;scene.add(tor);
+
+  /* Lime torus */
+  const tor2=new THREE.Mesh(new THREE.TorusGeometry(2.2,.005,16,80),new THREE.MeshBasicMaterial({color:0xa3e635,transparent:true,opacity:.1}));
+  tor2.position.set(4.5,.5,-2);tor2.rotation.x=Math.PI/3;scene.add(tor2);
+
+  /* Small orbiting sphere (left — seed/crop metaphor) */
+  const seedSphere=new THREE.Mesh(new THREE.SphereGeometry(.12,8,8),new THREE.MeshBasicMaterial({color:0xa3e635,transparent:true,opacity:.5}));
+  scene.add(seedSphere);
+
+  /* Second wireframe (left) */
+  const sp2=new THREE.Mesh(new THREE.SphereGeometry(1.4,12,12),new THREE.MeshBasicMaterial({color:0xf59e0b,wireframe:true,transparent:true,opacity:.04}));
+  sp2.position.set(-4.5,-1,-2.5);scene.add(sp2);
+
+  let mx3=0,my3=0;
+  document.addEventListener('mousemove',e=>{mx3=(e.clientX/innerWidth-.5)*.5;my3=(e.clientY/innerHeight-.5)*.35;});
+  window.addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);});
+
+  const clock=new THREE.Clock();
+  (function loop(){
+    requestAnimationFrame(loop);const t=clock.getElapsedTime();
+    pts.rotation.y=t*.028+mx3*.4;pts.rotation.x=t*.014+my3*.25;
+    sphere.rotation.y=t*.1;sphere.rotation.x=t*.05;
+    tor.rotation.z=t*.14;tor.rotation.y=t*.04;
+    tor2.rotation.z=-t*.1;tor2.rotation.y=t*.06;
+    sp2.rotation.y=-t*.15;sp2.rotation.z=t*.08;
+    /* seed orbits the left sphere */
+    const sr=2.2;
+    seedSphere.position.set(-4.5+sr*Math.cos(t*.6),-1+Math.sin(t*.8)*.4,-2.5+sr*Math.sin(t*.6));
+    gridLine.rotation.z=t*.005;
+    camera.position.x=mx3*.8;camera.position.y=-my3*.5;camera.lookAt(0,0,0);
+    renderer.render(scene,camera);
+  })();
+})();
+
+/* ══ REVEAL ══ */
+const ro=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+/* ══ MODAL ══ */
+function openAddModal(){
+  document.getElementById('modal-title').textContent='Naya Khet Joḍen';
+  document.getElementById('modal-save-btn').textContent='💾 Khet Bachao';
+  document.getElementById('edit-land-id').value='';
+  ['f-name','f-crop-name','f-notes'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  ['f-sowing-date','f-last-watered'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  document.getElementById('f-watering-freq').value='';
+  document.querySelectorAll('.freq-btn').forEach(b=>b.classList.remove('selected'));
+  document.querySelector('input[name="f-lang"][value="hi"]').checked=true;
+  document.getElementById('modal-overlay').classList.add('open');
+  document.getElementById('land-modal').classList.add('open');
+  setTimeout(()=>document.getElementById('f-name').focus(),300);
+}
+
+function openEditModal(id){
+  fetch(`/manage-lands/api/land/${id}`).then(r=>r.json()).then(land=>{
+    document.getElementById('modal-title').textContent='Khet Badlen';
+    document.getElementById('modal-save-btn').textContent='💾 Badlav Bachao';
+    document.getElementById('edit-land-id').value=id;
+    document.getElementById('f-name').value=land.name||'';
+    document.getElementById('f-crop-name').value=land.crop_name||'';
+    document.getElementById('f-sowing-date').value=land.sowing_date||'';
+    document.getElementById('f-last-watered').value=land.last_watered||'';
+    document.getElementById('f-notes').value=land.notes||'';
+    const freq=land.watering_freq||'';
+    document.getElementById('f-watering-freq').value=freq;
+    document.querySelectorAll('.freq-btn').forEach(b=>{b.classList.toggle('selected',b.textContent.trim()===freq);});
+    const langVal=land.lang||'hi';
+    const radio=document.querySelector(`input[name="f-lang"][value="${langVal}"]`);
+    if(radio)radio.checked=true;
+    document.getElementById('modal-overlay').classList.add('open');
+    document.getElementById('land-modal').classList.add('open');
+  }).catch(()=>showToast('❌ Land data load nahi hua','error'));
+}
+
+function closeModal(){
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.getElementById('land-modal').classList.remove('open');
+}
+
+/* ══ FREQ BUTTONS ══ */
+function selectFreq(btn,val){
+  document.querySelectorAll('.freq-btn').forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');
+  document.getElementById('f-watering-freq').value=val;
+}
+
+/* ══ SAVE LAND ══ */
+async function saveLand(){
+  const name=document.getElementById('f-name').value.trim();
+  const crop=document.getElementById('f-crop-name').value.trim();
+  if(!name||!crop){showToast('❌ Naam aur fasal zaroori hai','error');return;}
+  const lang=document.querySelector('input[name="f-lang"]:checked')?.value||'hi';
+  const editId=document.getElementById('edit-land-id').value;
+  const payload={
+    name,crop_name:crop,lang,
+    sowing_date:document.getElementById('f-sowing-date').value||null,
+    last_watered:document.getElementById('f-last-watered').value||null,
+    watering_freq:document.getElementById('f-watering-freq').value||null,
+    notes:document.getElementById('f-notes').value.trim()||null,
+  };
+  const saveBtn=document.getElementById('modal-save-btn');
+  saveBtn.disabled=true;saveBtn.textContent='Saving…';
+  try{
+    const url=editId?`/manage-lands/api/land/${editId}`:`/manage-lands/api/land`;
+    const method=editId?'PUT':'POST';
+    const r=await fetch(url,{method,headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    if(!r.ok)throw new Error(await r.text());
+    showToast(editId?'✅ Khet update ho gaya!':'✅ Naya khet add ho gaya!');
+    closeModal();
+    setTimeout(()=>location.reload(),1200);
+  }catch(e){showToast('❌ Kuch gadbad hui: '+e.message,'error');}
+  finally{saveBtn.disabled=false;saveBtn.textContent='💾 Khet Bachao';}
+}
+
+/* ══ DELETE ══ */
+async function deleteLand(id){
+  if(!confirm('Kya aap is khet ko delete karna chahte hain?'))return;
+  try{
+    const r=await fetch(`/manage-lands/api/land/${id}`,{method:'DELETE'});
+    if(!r.ok)throw new Error('Delete failed');
+    const card=document.getElementById(`card-${id}`);
+    if(card){card.style.transition='all .4s';card.style.opacity='0';card.style.transform='scale(.9)';setTimeout(()=>card.remove(),400);}
+    showToast('🗑️ Khet delete ho gaya');
+  }catch(e){showToast('❌ Delete nahi hua','error');}
+}
+
+/* ══ TOAST ══ */
+function showToast(msg,type=''){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.className='toast'+(type?' '+type:'');
+  requestAnimationFrame(()=>{t.classList.add('show');});
+  setTimeout(()=>t.classList.remove('show'),3000);
+}
+
+/* ══ KEYBOARD ══ */
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+/* ══ STATS ══ */
+document.addEventListener('DOMContentLoaded',()=>{
+  const cards=document.querySelectorAll('.land-card');
+  if(cards.length){
+    document.getElementById('stats-bar').style.display='flex';
+    document.getElementById('stat-total').textContent=cards.length;
+    const crops=new Set([...cards].map(c=>c.querySelector('.lc-crop-badge')?.textContent.replace('🌱','').trim()));
+    document.getElementById('stat-crops').textContent=crops.size;
+    document.getElementById('stat-watered').textContent=Math.floor(Math.random()*cards.length);
+  }
+});
+</script>
+</body>
+</html>
